@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
+import bcrypt from 'bcrypt';  // ← Change this line
 
 const userSchema = new mongoose.Schema(
   {
@@ -27,12 +27,11 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: "https://example.com/default-avatar.png", // Default avatar URL
+
       required: true,
     },
     coverImage: {
       type: String,
-      default: "https://example.com/default-cover.png", // Default cover image URL
     },
     bio: {
       type: String,
