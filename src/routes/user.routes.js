@@ -36,6 +36,16 @@ router.route("/refreh-token").post(refreshedAccessToken);
 router.route("/logout").post(verifyJwt, logoutUser);
 router.route("/changedPassword").post(verifyJwt, changedPassword);
 router.route("/getCurrentuser").post(verifyJwt, getCurrentUser);
-router.route("/updateAccountDetails").post(verifyJwt, updateAccountDetails);
+router.route("/update-account").patch(verifyJWT, updateAccountDetails);
+
+router
+  .route("/avatar")
+  .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
+router
+  .route("/cover-image")
+  .patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage);
+
+router.route("/c/:username").get(verifyJWT, getUserChannelProfile);
+router.route("/history").get(verifyJWT, getWatchHistory);
 
 export default router;
